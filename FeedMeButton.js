@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View, Button, Pressable } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Button,
+  Pressable,
+  TouchableOpacity,
+} from "react-native";
 import { Audio } from "expo-av";
 
 export default function FeedMeButton() {
@@ -32,14 +39,17 @@ export default function FeedMeButton() {
   }
   return (
     <View style={styles.container}>
-      <Button
+      <TouchableOpacity
+        style={styles.button}
         onPress={() => {
           pressButton();
         }}
-        color="#f194ff"
         disabled={!isHungry}
-        title={isHungry ? "FEED ME" : "YUMMM YUMMM YUMMM!!!!!"}
-      />
+      >
+        <Text color="#f194ff">
+          {isHungry ? "FEED ME" : "YUMMM YUMMM YUMMM!!!!!"}
+        </Text>
+      </TouchableOpacity>
     </View>
   );
 }

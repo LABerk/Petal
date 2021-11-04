@@ -8,8 +8,9 @@ import {
   TextInput,
   Button,
   Alert,
-  Pressable,
 } from "react-native";
+
+import FeedMeButton from "./FeedMeButton";
 import { Audio } from "expo-av";
 
 export default function Levi({ navigation }) {
@@ -63,14 +64,7 @@ export default function Levi({ navigation }) {
           borderWidth: 1,
         }}
       />
-      <Button
-        onPress={() => {
-          setIsHungry(false);
-        }}
-        color="#eb3b6a"
-        disabled={!isHungry}
-        title={isHungry ? "FEED ME" : "YUMMM"}
-      />
+      <FeedMeButton />
     </View>
   );
 }
