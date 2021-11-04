@@ -9,17 +9,43 @@ import {
   Button,
   Alert,
 } from "react-native";
+import { Audio } from "expo-av";
 
-export default function OGpet(props) {
+export default function Basil(props) {
   const [isHungry, setIsHungry] = useState(true);
   const [name, setName] = useState("up to you!");
+  const [sound, setSound] = React.useState();
+
+  async function playSound() {
+    console.log("Loading Sound");
+    const { sound } = await Audio.Sound.createAsync(
+      require("./assets/howl.mp3")
+    );
+    setSound(sound);
+
+    console.log("Playing Sound");
+    await sound.playAsync();
+  }
+
+  React.useEffect(() => {
+    return sound
+      ? () => {
+          console.log("Unloading Sound");
+          sound.unloadAsync();
+        }
+      : undefined;
+  }, [sound]);
+
   return (
     <View style={styles.container}>
-      <Text>Hello world! My name is {name} Are you ready to rumble??</Text>
-      <TouchableOpacity onPress={() => Alert.alert(`Thanks for the pets!`)}>
+      <Text>Hello world! My name is {name}. I love everything!!</Text>
+      <TouchableOpacity
+        onPress={() => Alert.alert(`Thanks for the pets!`)}
+        onPress={playSound}
+      >
         <Image
           source={{
-            uri: "https://reactnative.dev/docs/assets/p_cat2.png",
+            uri: "../assets/loungecat.png",
           }}
           style={{ width: 200, height: 200 }}
         />
@@ -40,7 +66,7 @@ export default function OGpet(props) {
         }}
         color="#f194ff"
         disabled={!isHungry}
-        title={isHungry ? "FEED ME" : "YUMMM"}
+        title={isHungry ? "FEED ME" : "YUMMM YUMMM YUMMM!!!!!"}
       />
     </View>
   );
