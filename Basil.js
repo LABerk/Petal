@@ -8,8 +8,10 @@ import {
   TextInput,
   Button,
   Alert,
+  Pressable,
 } from "react-native";
 import { Audio } from "expo-av";
+import FeedMeButton from "./FeedMeButton";
 
 export default function Basil({ navigation }) {
   const [isHungry, setIsHungry] = useState(true);
@@ -45,7 +47,7 @@ export default function Basil({ navigation }) {
       >
         <Image
           source={{
-            uri: "../assets/loungecat.png",
+            uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlJeVu4Bd2mwTFx6j5Tsqr4e1i8VrS0ZFEPw&usqp=CAU",
           }}
           style={{ width: 200, height: 200 }}
         />
@@ -53,21 +55,16 @@ export default function Basil({ navigation }) {
 
       <TextInput
         placeholder="Name your pet!"
+        maxLength={20}
         onChangeText={(name) => setName(name)}
+        blurOnSubmit={true}
         style={{
           height: 40,
           borderColor: "gray",
           borderWidth: 1,
         }}
       />
-      <Button
-        onPress={() => {
-          setIsHungry(false);
-        }}
-        color="#f194ff"
-        disabled={!isHungry}
-        title={isHungry ? "FEED ME" : "YUMMM YUMMM YUMMM!!!!!"}
-      />
+      <FeedMeButton />
     </View>
   );
 }

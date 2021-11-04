@@ -8,6 +8,7 @@ import {
   TextInput,
   Button,
   Alert,
+  Pressable,
 } from "react-native";
 import { Audio } from "expo-av";
 
@@ -47,7 +48,7 @@ export default function Levi({ navigation }) {
       >
         <Image
           source={{
-            uri: "../assets/loungecat.png",
+            uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4UFWmVT6fALHNi_bAUgJCncOIOnBSsJqewA&usqp=CAU",
           }}
           style={{ width: 200, height: 200 }}
         />
@@ -66,7 +67,7 @@ export default function Levi({ navigation }) {
         onPress={() => {
           setIsHungry(false);
         }}
-        color="#f194ff"
+        color="#eb3b6a"
         disabled={!isHungry}
         title={isHungry ? "FEED ME" : "YUMMM"}
       />
