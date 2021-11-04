@@ -11,14 +11,26 @@ import {
 } from "react-native";
 import { Audio } from "expo-av";
 
-export default function HomeScreen(props) {
+export default function HomeScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <Text>Hello there! Pick your pet.</Text>
-      <TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => navigation.navigate("Levi", { name: "Levi" })}
+      >
         <Image
           source={{
-            uri: "../assets/loungecat.png",
+            uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4UFWmVT6fALHNi_bAUgJCncOIOnBSsJqewA&usqp=CAU",
+          }}
+          style={{ width: 200, height: 200 }}
+        />
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => navigation.navigate("Basil", { name: "Basil" })}
+      >
+        <Image
+          source={{
+            uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlJeVu4Bd2mwTFx6j5Tsqr4e1i8VrS0ZFEPw&usqp=CAU",
           }}
           style={{ width: 200, height: 200 }}
         />

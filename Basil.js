@@ -11,7 +11,7 @@ import {
 } from "react-native";
 import { Audio } from "expo-av";
 
-export default function Basil(props) {
+export default function Basil({ navigation }) {
   const [isHungry, setIsHungry] = useState(true);
   const [name, setName] = useState("up to you!");
   const [sound, setSound] = React.useState();
