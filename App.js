@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import * as React from "react";
-//cant get navigator to work
+
 import { StyleSheet, Text, View, Image, TextInput } from "react-native";
 import Levi from "./Levi";
 import Basil from "./Basil";
